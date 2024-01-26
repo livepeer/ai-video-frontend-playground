@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
 import { useFormStatus } from "react-dom";
 import { useFormState } from "react-dom";
@@ -52,6 +53,13 @@ const ImageToVideoBox = () => {
         />
       </Button>
       {inputImageUrl && <img src={inputImageUrl} />}
+      <TextField
+        id="outlined-basic"
+        label="motion_bucket_id"
+        variant="outlined"
+        name="motion_bucket_id"
+        type="text"
+      />
       <Button component="label" variant="contained" disabled={pending}>
         Generate Video
         <VisuallyHiddenInput type="submit" />
