@@ -1,15 +1,16 @@
 "use server";
 
 export async function imageToImage(prevState: any, formData: FormData) {
-  formData.append("model_id", "stabilityai/sd-turbo");
-
+  const modelID = formData.get("model_id");
   const prompt = formData.get("prompt") as string;
   const image = formData.get("image") as File;
+  const strength = formData.get("strength");
 
   const newFormData = new FormData();
   newFormData.append("prompt", prompt);
   newFormData.append("image", image);
-  newFormData.append("model_id", "stabilityai/sd-turbo");
+  if (modelID) newFormData.append("model_id", modelID);
+  if (strength) newFormData.append("strength", strength);
 
   const url = process.env.AI_VIDEO_API_URL + "/image-to-image";
   const res = await fetch(url, {
