@@ -108,7 +108,12 @@ const ImageToImageBox = () => {
         Generate Image
         <VisuallyHiddenInput type="submit" />
       </Button>
-      {imageResponse && <img src={imageResponse.images[0].url} />}
+      {imageResponse?.error && (
+        <div>
+          <p>{imageResponse.error.message}</p>
+        </div>
+      )}
+      {imageResponse?.images && <img src={imageResponse.images[0].url} />}
     </form>
   );
 };

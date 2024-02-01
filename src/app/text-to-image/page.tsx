@@ -91,7 +91,12 @@ const TextToImageBox = () => {
         Generate Image
         <VisuallyHiddenInput type="submit" />
       </Button>
-      {imageResponse && (
+      {imageResponse?.error && (
+        <div>
+          <p>{imageResponse.error.message}</p>
+        </div>
+      )}
+      {imageResponse?.images && (
         <div>
           <img src={imageResponse.images[0].url} />
         </div>

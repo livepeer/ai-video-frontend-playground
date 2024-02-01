@@ -64,7 +64,12 @@ const ImageToVideoBox = () => {
         Generate Video
         <VisuallyHiddenInput type="submit" />
       </Button>
-      {imageResponse && (
+      {imageResponse?.error && (
+        <div>
+          <p>{imageResponse.error.message}</p>
+        </div>
+      )}
+      {imageResponse?.images && (
         <video controls>
           <source src={imageResponse.images[0].url} type="video/mp4"></source>
         </video>
