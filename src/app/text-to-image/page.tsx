@@ -87,6 +87,13 @@ const TextToImageBox = () => {
         name="width"
         type="number"
       />
+      <TextField
+        id="outlined-basic"
+        label="seed"
+        variant="outlined"
+        name="seed"
+        type="number"
+      />
       <Button component="label" variant="contained" disabled={pending}>
         Generate Image
         <VisuallyHiddenInput type="submit" />
