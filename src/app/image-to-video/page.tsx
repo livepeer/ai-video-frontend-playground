@@ -55,6 +55,20 @@ const ImageToVideoBox = () => {
       {inputImageUrl && <img src={inputImageUrl} />}
       <TextField
         id="outlined-basic"
+        label="height"
+        variant="outlined"
+        name="height"
+        type="number"
+      />
+      <TextField
+        id="outlined-basic"
+        label="width"
+        variant="outlined"
+        name="width"
+        type="number"
+      />
+      <TextField
+        id="outlined-basic"
         label="motion_bucket_id"
         variant="outlined"
         name="motion_bucket_id"

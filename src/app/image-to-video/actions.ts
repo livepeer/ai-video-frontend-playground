@@ -2,6 +2,8 @@
 
 export async function imageToVideo(prevState: any, formData: FormData) {
   const image = formData.get("image") as File;
+  const height = formData.get("height");
+  const width = formData.get("width");
   const motionBucketID = formData.get("motion_bucket_id");
 
   const newFormData = new FormData();
@@ -10,6 +12,8 @@ export async function imageToVideo(prevState: any, formData: FormData) {
     "model_id",
     "stabilityai/stable-video-diffusion-img2vid-xt"
   );
+  if (height) newFormData.append("height", height);
+  if (width) newFormData.append("width", width);
   if (motionBucketID) newFormData.append("motion_bucket_id", motionBucketID);
 
   const url = process.env.AI_VIDEO_API_URL + "/image-to-video";
