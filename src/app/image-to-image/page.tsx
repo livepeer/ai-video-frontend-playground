@@ -105,6 +105,13 @@ const ImageToImageBox = () => {
         name="strength"
         type="text"
       />
+      <TextField
+        id="outlined-basic"
+        label="num_images_per_prompt"
+        variant="outlined"
+        name="num_images_per_prompt"
+        type="number"
+      />
       <Button component="label" variant="contained" disabled={pending}>
         Generate Image
         <VisuallyHiddenInput type="submit" />
@@ -114,7 +121,12 @@ const ImageToImageBox = () => {
           <p>{imageResponse.error.message}</p>
         </div>
       )}
-      {imageResponse?.images && <img src={imageResponse.images[0].url} />}
+      {imageResponse?.images &&
+        imageResponse?.images.map((image: any) => (
+          <div>
+            <img src={image.url} />
+          </div>
+        ))}
     </form>
   );
 };

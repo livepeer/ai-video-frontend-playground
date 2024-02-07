@@ -6,6 +6,7 @@ export async function textToImage(prevState: any, formData: FormData) {
   const height = formData.get("height");
   const width = formData.get("width");
   const seed = formData.get("seed");
+  const numImagesPerPrompt = formData.get("num_images_per_prompt");
 
   const data = {
     model_id: modelID ? modelID : "",
@@ -13,6 +14,9 @@ export async function textToImage(prevState: any, formData: FormData) {
     height: height ? Number(height) : null,
     width: width ? Number(width) : null,
     seed: seed ? Number(seed) : null,
+    num_images_per_prompt: numImagesPerPrompt
+      ? Number(numImagesPerPrompt)
+      : null,
   };
 
   const url = process.env.AI_VIDEO_API_URL + "/text-to-image";
