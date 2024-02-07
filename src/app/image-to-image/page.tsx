@@ -28,6 +28,7 @@ const VisuallyHiddenInput = styled("input")({
 
 const MODELS = [
   "stabilityai/sd-turbo",
+  "stabilityai/sdxl-turbo",
   "runwayml/stable-diffusion-v1-5",
   "stabilityai/stable-diffusion-xl-base-1.0",
   "prompthero/openjourney-v4",
