@@ -114,6 +114,7 @@ const TextToImageBox = () => {
       {imageResponse?.images.map((image: any) => (
         <div>
           <img src={image.url} />
+          <p>Seed: {image.seed} </p>
         </div>
       ))}
     </form>

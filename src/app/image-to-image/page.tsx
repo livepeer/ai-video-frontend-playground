@@ -107,6 +107,13 @@ const ImageToImageBox = () => {
       />
       <TextField
         id="outlined-basic"
+        label="seed"
+        variant="outlined"
+        name="seed"
+        type="number"
+      />
+      <TextField
+        id="outlined-basic"
         label="num_images_per_prompt"
         variant="outlined"
         name="num_images_per_prompt"
@@ -125,6 +132,7 @@ const ImageToImageBox = () => {
         imageResponse?.images.map((image: any) => (
           <div>
             <img src={image.url} />
+            <p>Seed: {image.seed}</p>
           </div>
         ))}
     </form>

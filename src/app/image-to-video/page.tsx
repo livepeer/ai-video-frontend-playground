@@ -74,6 +74,13 @@ const ImageToVideoBox = () => {
         name="motion_bucket_id"
         type="text"
       />
+      <TextField
+        id="outlined-basic"
+        label="seed"
+        variant="outlined"
+        name="seed"
+        type="number"
+      />
       <Button component="label" variant="contained" disabled={pending}>
         Generate Video
         <VisuallyHiddenInput type="submit" />
@@ -84,9 +91,12 @@ const ImageToVideoBox = () => {
         </div>
       )}
       {imageResponse?.images && (
-        <video controls>
-          <source src={imageResponse.images[0].url} type="video/mp4"></source>
-        </video>
+        <div>
+          <video controls>
+            <source src={imageResponse.images[0].url} type="video/mp4"></source>
+          </video>
+          <p>Seed: {imageResponse.images[0].seed}</p>
+        </div>
       )}
     </form>
   );

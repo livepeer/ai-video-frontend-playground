@@ -5,6 +5,7 @@ export async function imageToImage(prevState: any, formData: FormData) {
   const prompt = formData.get("prompt") as string;
   const image = formData.get("image") as File;
   const strength = formData.get("strength");
+  const seed = formData.get("seed");
   const numImagesPerPrompt = formData.get("num_images_per_prompt");
 
   const newFormData = new FormData();
@@ -12,6 +13,7 @@ export async function imageToImage(prevState: any, formData: FormData) {
   newFormData.append("image", image);
   if (modelID) newFormData.append("model_id", modelID);
   if (strength) newFormData.append("strength", strength);
+  if (seed) newFormData.append("seed", seed);
   if (numImagesPerPrompt)
     newFormData.append("num_images_per_prompt", numImagesPerPrompt);
 
