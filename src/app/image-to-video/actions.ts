@@ -1,6 +1,7 @@
 "use server";
 
 export async function imageToVideo(prevState: any, formData: FormData) {
+  const modelID = formData.get("model_id");
   const image = formData.get("image") as File;
   const height = formData.get("height");
   const width = formData.get("width");
@@ -9,10 +10,7 @@ export async function imageToVideo(prevState: any, formData: FormData) {
 
   const newFormData = new FormData();
   newFormData.append("image", image);
-  newFormData.append(
-    "model_id",
-    "stabilityai/stable-video-diffusion-img2vid-xt"
-  );
+  if (modelID) newFormData.append("model_id", modelID);
   if (height) newFormData.append("height", height);
   if (width) newFormData.append("width", width);
   if (motionBucketID) newFormData.append("motion_bucket_id", motionBucketID);
