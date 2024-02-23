@@ -31,6 +31,7 @@ const MODELS = [
   "runwayml/stable-diffusion-v1-5",
   "stabilityai/stable-diffusion-xl-base-1.0",
   "prompthero/openjourney-v4",
+  "ByteDance/SDXL-Lightning",
 ];
 
 const TextToImageBox = () => {
